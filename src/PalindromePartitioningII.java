@@ -24,6 +24,11 @@ public class PalindromePartitioningII {
         // the worst case for minimum cut is cut the string into one character
         // String: a   b   a   b   b   b   a   b   b   a   b   a
         // cuts[i] 12  11  10  9   8   7   6   5   4   3   2   1  0 
+        // why we added one here ?
+        // The best case is the whole string is a palindrome, which we should return 0 here
+        // what if the string is "bb" in this case the cuts will be 1, 0 , 0
+        // min value of cut[0](1) and cut[1](0)+1 will still be 1, 
+        
         for (i = 0; i < len; i++)
             cuts[i] = len- i;
         
@@ -46,8 +51,14 @@ public class PalindromePartitioningII {
             }
         }
         
-        return cuts[0]-1;
+        return cuts[0] - 1;
         
+    }
+    
+    public static void main(String args[]) {
+        PalindromePartitioningII p = new PalindromePartitioningII();
+        String a1 = "bb";
+        System.out.println(p.minCut(a1));
     }
 
 }
