@@ -24,6 +24,7 @@ public class LongestPalindromicSubstring {
                 if (s.charAt(i) == s.charAt(j) && 
                         ((j-i <2)||(p[i+1][j-1]))){
                     p[i][j] = true;
+                    // found larger palindromic substring 
                     if (j - i > max_len) {
                         max_len = j - i;
                         max_start = i;
@@ -35,6 +36,7 @@ public class LongestPalindromicSubstring {
             }
         }
         
+        // need to add 1 for end, because substring returns [i,j)
         return s.substring(max_start, max_end+1);
         
     }
