@@ -14,7 +14,7 @@ Return
  */
 import java.util.*;
 public class PalindromePartitioning {
-    
+    // the function to check if the string is palindrome or not
     private boolean isPalindrome(String s) {
         
         if (s.length() <= 1)
@@ -33,16 +33,21 @@ public class PalindromePartitioning {
     }
     
     public void findNextPalindrome(ArrayList<ArrayList<String>> result, ArrayList<String> set, String s) {
-        
+        // reach the end of the string, means found another solution, add the solution into 
         if (s.length() == 0) {
             result.add(new ArrayList<String>( set));
             return;
         }
+        // scan the string from left to right
         for (int i = 1; i<= s.length(); i++) {
+            // get current substring
             String n = s.substring(0, i);
             if (isPalindrome(n)) {
+                // add the substring to the current solution set 
                 set.add(n);
+                // check the rest of the string
                 findNextPalindrome(result, set, s.substring(i));
+                // remove it from current solution set, looking for the next
                 set.remove(set.size()-1);
             }
         }
