@@ -4,7 +4,54 @@
  */
 import java.util.*;
 public class MergeKSortedList {
+    
+    public ListNode mergeListNode(ListNode left, ListNode right) {
+        ListNode start = new ListNode(0);
+        ListNode cur = start;
+        ListNode leftP = left;
+        ListNode rightP = right;
+        
+        while (leftP != null && rightP != null) {
+            if (leftP.val < rightP.val) {
+                cur.next = leftP;
+                leftP = leftP.next;
+            } else {
+                cur.next = rightP;
+                rightP = rightP.next;
+            }
+            cur = cur.next;
+        }
+        
+        
+        if (leftP != null) {
+            cur.next = leftP;
+        }
+        else if (rightP != null) {
+            cur.next = rightP;
+        }
+        return start.next;
+    }
+    
+    public ListNode mergeLists(ArrayList<ListNode> lists, int begin, int end) {
+        if (end == begin) {
+            return lists.get(begin);
+        } else if (end == begin + 1) {
+            return mergeListNode(lists.get(begin), lists.get(end));
+        }
+        int mid = (begin + end)/2;
+        ListNode node1 = mergeLists(lists, begin, mid-1);
+        ListNode node2 = mergeLists(lists, mid, end);
+        
+        return mergeListNode(node1, node2);
+    }
+    
     public ListNode mergeKLists(ArrayList<ListNode> lists) {
+        if (lists == null || lists.size() == 0)
+            return null;
+        return mergeLists(lists, 0, lists.size()-1);
+    }
+    
+    public ListNode mergeKLists_longtime(ArrayList<ListNode> lists) {
         if (lists == null || lists.size() == 0)
             return null;
 
