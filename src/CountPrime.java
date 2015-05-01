@@ -8,28 +8,25 @@ public class CountPrime {
         if (n <= 2)
             return 0;
 
-        int out = 1;
-        int idx = 2;
+        int out = 0;
+        int idx = 2;    //first prime number
         
         boolean flag[] = new boolean[n];
         Arrays.fill(flag, false);
         
-        while (idx < n) {
+        do {
+            out++;
+            // fill out the multiples of current prime
             for (int i = idx*2; i < n; i += idx) {
                 flag[i] = true;
             }
+            // looking for the next prime
             do {
                 idx++;
             } while(idx < n && flag[idx]);
-            
-            if (idx < n)
-                out++;
-            
-        }
-        
-        
-        
-        
+
+        } while (idx < n);
+
         return out;
         
         
