@@ -13,6 +13,7 @@ public class MajorityElementII {
         
         int len = nums.length;
         
+        // vote algorithm , get the most 2 (if existed)
         for (int i = 0; i < len;i++) {
             // bug here
             // need to check existing value first, otherwise like {8,8,7,7,7}
@@ -33,6 +34,7 @@ public class MajorityElementII {
             }
         }
         
+        // check those 2 are actually majority numbers
         cm = cn = 0;
         
         for (int i = 0; i < len;i++) {
