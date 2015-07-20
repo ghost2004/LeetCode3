@@ -60,7 +60,7 @@ public class PopulatingNextRightPointersII {
                 // move to next sibling
                 parent = parent.next;
             }
-            
+            // move to next level
             parent = head;
             head = null;
         }
