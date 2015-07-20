@@ -22,14 +22,21 @@ import java.util.*;
 public class WordLadder {
      
     public int ladderLength(String beginWord, String endWord, Set<String> wordDict) {
-        
+        // the queue for all words waiting for visiting
         Queue<String> queue = new LinkedList<String>();
+        // the map to save the level of each word
         HashMap<String, Integer> map = new HashMap<String, Integer>();
+        
         int len = beginWord.length();
+        
+        // put the start word into queue, and its level is 1
         queue.offer(beginWord); 
         map.put(beginWord, 1);
+        
         while (!queue.isEmpty()) {
+            // get next word in queue
             String key = queue.poll();
+            // get the level of new word
             int level = map.get(key) + 1;
             char arr[] = key.toCharArray();
             
