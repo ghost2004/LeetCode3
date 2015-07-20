@@ -32,7 +32,7 @@ public class PopulatingNextRightPointersII {
         TreeLinkNode cur = null;
         
         while (parent !=  null) {
-            
+            // scan parent level
             while (parent != null) {
                 // when left child is not null
                 if (parent.left != null) {
@@ -57,7 +57,7 @@ public class PopulatingNextRightPointersII {
                         cur = cur.next;
                     }
                 }
-                
+                // move to next sibling
                 parent = parent.next;
             }
             
