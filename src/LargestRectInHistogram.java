@@ -101,7 +101,7 @@ public class LargestRectInHistogram {
              *                              ^
              *                              |
              *                           index    
-             *  And we are calculating the block at index 1-5, area is 1x5 = 5                                             
+             *  And we are calculating the block at index 0-5, area is 1x6 = 6                                             
              *                           
              */ 
             int p = stack.pop();
