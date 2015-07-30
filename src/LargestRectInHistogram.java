@@ -87,20 +87,20 @@ public class LargestRectInHistogram {
              *           stack        peek pop
              *              |           |   |
              *              v           v   v
-             * index    0   1   2   3   4   5
+             * index    0   1   2   3   4   5   6
              * value    2   1   5   6   2   3
-             *                              ^
-             *                              |
-             *                           index
+             *                                  ^
+             *                                  |
+             *                                index
              * Finally it will be                           
              *             pop
              *              | 
              *              v   
-             * index    0   1   2   3   4   5
+             * index    0   1   2   3   4   5   6
              * value    2   1   5   6   2   3
-             *                              ^
-             *                              |
-             *                           index    
+             *                                  ^
+             *                                  |
+             *                                index    
              *  And we are calculating the block at index 0-5, area is 1x6 = 6                                             
              *                           
              */ 
