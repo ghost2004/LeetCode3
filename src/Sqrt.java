@@ -6,6 +6,7 @@ Compute and return the square root of x.
 public class Sqrt {
     public int mySqrt(int x) {
         long start = 0;
+        // the sqrt can't be more than n/2+1
         long end = x/2+1;
         
         while (start <= end) {
