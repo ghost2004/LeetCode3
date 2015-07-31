@@ -6,7 +6,11 @@ public class PowerofTwo {
         if (n <= 0)
             return false;
         int x = n;
-        
+        while (x != 1) {
+            if ( (x&1) != 0)
+                return false;
+            x = x >>1;
+        }
         return true;
     }
 }
