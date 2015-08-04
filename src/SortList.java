@@ -81,9 +81,9 @@ public class SortList {
         ListNode t4 = ListNode.initFromArray(array4);
         SortList sort = new SortList();
    
-        //ListNode.printListNode(sort.sortList(t1));
+        ListNode.printListNode(sort.sortList(t1));
         ListNode.printListNode(sort.sortList(t2));
-        //ListNode.printListNode(sort.sortList(t3));
-        //ListNode.printListNode(sort.sortList(t4));
+        ListNode.printListNode(sort.sortList(t3));
+        ListNode.printListNode(sort.sortList(t4));
     }
 }
