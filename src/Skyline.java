@@ -88,7 +88,7 @@ public class Skyline {
         
         // sort the edges array
         Arrays.sort(edges, Edge_compare);
-        
+        // we need max heap here, to get the highest height
         PriorityQueue<Integer> heap = new PriorityQueue<Integer>(buildings.length, Collections.reverseOrder());
         // add horizon line first
         heap.offer(0);
