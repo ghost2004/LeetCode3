@@ -25,6 +25,7 @@ Could you solve it in linear time?
  */
 import java.util.*;
 public class SlidingWindowMax {
+    // heap solution
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length < k || k == 1)
             return nums;
@@ -46,6 +47,44 @@ public class SlidingWindowMax {
             heap.remove(nums[i-k]);
             heap.add(nums[i]);
             res[idx++] = heap.peek();
+        }
+        
+        return res;
+    }
+    
+    // Deque solution
+    public int[] maxSlidingWindow2(int[] nums, int k) {
+        if (nums == null || nums.length < k || k == 1)
+            return nums;
+        if (k == 0)
+            return new int[0];
+        
+        // the length of result
+        int length = nums.length + 1 - k;
+        int res[] = new int[length];
+        int idx = 0;
+        
+        // double linked list for all candidate's index
+        LinkedList<Integer> queue = new LinkedList<Integer>();
+        
+        for (int i = 0; i < nums.length; i++) {
+            // the sliding window moves left, remove the most left one
+            // if it is still in queue
+            if (!queue.isEmpty() && queue.peekFirst() == i - k)
+                queue.removeFirst();
+            // check from the end of the queue
+            // if new coming element is greater than it, 
+            // it means the element in queue will never be selected.
+            // So we just remove them to keep highest one in queue
+            while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i])
+                queue.removeLast();
+            // add the new element
+            queue.addLast(i);
+            if (i >= k-1) {
+                // add the front of queue into result
+                res[idx++] = nums[queue.peekFirst()];
+            }
+                
         }
         
         return res;
