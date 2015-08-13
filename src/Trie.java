@@ -7,8 +7,8 @@ You may assume that all inputs are consist of lowercase letters a-z.
 class TrieNode {
     
     static final int TrieRange = 26;
-    TrieNode next[];
-    boolean isSet;
+    TrieNode next[];    // node list for child level
+    boolean isSet;      // flag for contain the word
     // Initialize your data structure here.
     public TrieNode() {
         this.next = new TrieNode[TrieRange];
@@ -25,10 +25,12 @@ public class Trie {
     private TrieNode insertWord(TrieNode node, String word, int idx) {
         if (node == null) 
             node = new TrieNode();
+        // reach the end of the word
         if (idx == word.length()) {
             node.isSet = true;
             return node;
         }
+        // get the next key
         int key = word.charAt(idx) - 'a';
         
         node.next[key] = insertWord(node.next[key], word, idx+1);
