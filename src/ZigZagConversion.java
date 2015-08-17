@@ -21,6 +21,7 @@ public class ZigZagConversion {
         /* 
          * the loop should be 2*(n-1)
          * For example row = 3 , the loop is 0 1 2 1
+         * row = 4, the loop is 0 1 2 3 2 1
          */
         int size = 2*(numRows-1);
         // the map from loop id to line number
