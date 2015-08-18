@@ -36,7 +36,7 @@ public class BasicCalculator {
                     if (o == '+') {
                         tmp += nums.pop();
                     } else if (o == '-') {
-                        tmp -= nums.pop();
+                        tmp = nums.pop() - tmp;
                     }
                 }
                 nums.push(tmp);
@@ -47,6 +47,17 @@ public class BasicCalculator {
                 while (o != '(') {
                     int t2 = nums.pop();
                     int t1 = nums.pop();
+                    if (o == '+') {
+                        nums.push(t1+t2);
+                    } else if (o == '-') {
+                        nums.push(t1-t2);
+                    }
+                    o = ops.pop();
+                }
+                if (!ops.isEmpty()) {
+                    int t2 = nums.pop();
+                    int t1 = nums.pop();
+                    o = ops.pop();
                     if (o == '+') {
                         nums.push(t1+t2);
                     } else if (o == '-') {
@@ -72,8 +83,13 @@ public class BasicCalculator {
     
     public static void main(String args[]) {
         String s = "(1-(3-4))";
+        String s2 = "1-11";
+        String s3 = "(7)-(0)+(4)";
+                
         BasicCalculator b = new BasicCalculator();
-        System.out.println(b.calculate(s));
+        //System.out.println(b.calculate(s));
+        //System.out.println(b.calculate(s2));
+        System.out.println(b.calculate(s3));
         
     }
 }
