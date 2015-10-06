@@ -53,4 +53,9 @@ public class DecodeWays {
         return preCnt;
         
     }
+    
+    public static void main(String args[]) {
+        DecodeWays d = new DecodeWays();
+        System.out.println(d.numDecodings("110"));
+    }
 }
